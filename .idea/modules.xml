@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Exception/Exception.iml" filepath="$PROJECT_DIR$/Exception/Exception.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Generics/Generics.iml" filepath="$PROJECT_DIR$/Generics/Generics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GenericsPart2/GenericsPart2.iml" filepath="$PROJECT_DIR$/GenericsPart2/GenericsPart2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IOStream/IOStream.iml" filepath="$PROJECT_DIR$/IOStream/IOStream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java-mWS.iml" filepath="$PROJECT_DIR$/Java-mWS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StaticNonStatic/StaticNonStatic.iml" filepath="$PROJECT_DIR$/StaticNonStatic/StaticNonStatic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/String/String.iml" filepath="$PROJECT_DIR$/String/String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01/day01.iml" filepath="$PROJECT_DIR$/day01/day01.iml" />
+    </modules>
+  </component>
+</project>
