@@ -4,27 +4,39 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.Arrays;
 
 public class RandomAccessFileTest {
+
+    public static void main(String[] args) {
+
+        int a = 34;
+
+        System.out.println("a = " + a);
+        System.out.println("args = " + Arrays.deepToString(args)); // soutp : paramters
+        System.out.println("RandomAccessFileTest.main"); // soutm: method
+
+    }
 
     @Test
     public void test() {
 
+
         RandomAccessFile raf1 = null;
         RandomAccessFile raf2 = null;
+
         try {
-                 raf1 = new RandomAccessFile("nature.jpg", "r");
-                 raf2 = new RandomAccessFile("nature1.jpg", "rw");
+            raf1 = new RandomAccessFile("nature.jpg", "r");
+            raf2 = new RandomAccessFile("nature1.jpg", "rw");
 
-                int len;
-                byte[] buffer = new byte[1024];
-                while ((len = raf1.read(buffer)) != -1){
-                    raf2.write(buffer, 0, len);
-                }
-
-            }catch (IOException e){
-                e.printStackTrace();
-            }finally {
+            int len;
+            byte[] buffer = new byte[1024];
+            while ((len = raf1.read(buffer)) != -1){
+                raf2.write(buffer, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
                 if(raf2 != null){
                     try {
                         raf2.close();

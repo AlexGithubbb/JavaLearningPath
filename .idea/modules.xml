@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/Java-mWS.iml" filepath="$PROJECT_DIR$/Java-mWS.iml" />
       <module fileurl="file://$PROJECT_DIR$/StaticNonStatic/StaticNonStatic.iml" filepath="$PROJECT_DIR$/StaticNonStatic/StaticNonStatic.iml" />
       <module fileurl="file://$PROJECT_DIR$/String/String.iml" filepath="$PROJECT_DIR$/String/String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Thread/Thread.iml" filepath="$PROJECT_DIR$/Thread/Thread.iml" />
       <module fileurl="file://$PROJECT_DIR$/day01/day01.iml" filepath="$PROJECT_DIR$/day01/day01.iml" />
     </modules>
   </component>
