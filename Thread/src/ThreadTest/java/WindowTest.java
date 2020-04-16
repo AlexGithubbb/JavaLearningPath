@@ -30,6 +30,8 @@ class WindowThread extends Thread{
             if(tickets > 0){
                 System.out.println(getName() + " 售出票号: " + tickets);
                 tickets --;
+            }else{
+                break;
             }
         }
     }
