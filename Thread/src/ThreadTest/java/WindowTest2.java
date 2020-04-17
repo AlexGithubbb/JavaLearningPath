@@ -9,7 +9,7 @@ public class WindowTest2 {
 
     public static void main(String[] args) {
 
-        WindowClass window1 = new WindowClass();
+        Window2 window1 = new Window2();
 
         Thread w1 = new Thread(window1);
         Thread w2 = new Thread(window1);
@@ -24,9 +24,9 @@ public class WindowTest2 {
         w3.start();
     }
 }
-class WindowClass implements  Runnable{
+class Window2 implements  Runnable{
 
-    public WindowClass() {
+    public Window2() {
     }
 
     private int tickets = 100; // make it static to be shared with all instances
