@@ -28,7 +28,7 @@ public class WindowTest3plus {
         w3.start();
     }
 }
-class Window3plus implements  Runnable{
+class Window3plus implements Runnable{
 
     public Window3plus() {
     }

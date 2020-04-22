@@ -1,9 +1,29 @@
 package com.alexpower.java;
 
 import org.junit.Test;
-
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+/*
+* length()
+* charAt()
+* isEmpty()
+* toLowerCase()
+* toUpperCase()
+* trim()
+*
+* equals
+* equalsIngnoreCase()
+*
+* startsWith()
+* endsWith()
+*
+* indexOf() return the index of first char, or -1 if no result
+*
+*
+*
+*
+*
+*  */
 
 public class StringMethodTest {
 
@@ -63,9 +83,9 @@ public class StringMethodTest {
 
         // subString(beginIndex, (endIndex));
         String s8 = "中国陕西西安";
-        String s9 = s8.substring(2);
+        String s9 = s8.substring(2); // begin index : 陕西西安
         System.out.println("---s8: " + s8+ "---s9: " + s9);
-        s9 = s8.substring(4,6);
+        s9 = s8.substring(4,6); // begin index, end index
         System.out.println(s9);
     }
 
@@ -112,6 +132,7 @@ public class StringMethodTest {
         // String && char[]
 
         String str1= "abcqwe";
+
         char[] charArray = str1.toCharArray();
         for(int x= 0; x < charArray.length; x++){
             System.out.println(charArray[x]);
@@ -149,6 +170,9 @@ public class StringMethodTest {
         byte[] bytes = str1.getBytes();
         System.out.println(Arrays.toString(bytes)); // [65,66,67]
 
+//        byte[] bytes1 = str1.getBytes();
+//        String s = new String(bytes1);
+
         // 解码
         System.out.println(new String(bytes));
 
@@ -160,7 +184,17 @@ public class StringMethodTest {
         // 在解码时， 解码集必须与编码集一致， 否则会出现乱码
 
         System.out.println(new String(gbks, "gbk")); // 解码正确
+    }
 
+    @Test
+    public void test7() {
+        String str = "1234567";
+        System.out.println(str.matches("\\d+")); // true
+
+        // tell if it's phone from Toronto, Canada
+
+        String phoneNum = "647-5507980";
+        System.out.println(phoneNum.matches("(647)-\\d{7,8}")); // true
 
     }
 }
