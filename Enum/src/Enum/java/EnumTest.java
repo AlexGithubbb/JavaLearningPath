@@ -4,7 +4,7 @@ package Enum.java;
 toString()
 values()
 valueOf()
-
+methods are coming from Enum class, (java.util.Enum)
 */
 
 public class EnumTest {
@@ -15,12 +15,14 @@ public class EnumTest {
 //        System.out.println(winter.getClass().getSuperclass()); // java.lang.Enum
         System.out.println("*********");
 
+        /* values()  reuturn the array that includes all enum objects */
         Season1[] values = Season1.values();
         for (int i = 0; i < values.length; i++) {
             System.out.println(values[i]);
             values[i].show();
         }
 
+        /* valueOf() returns the enum object with Enum name "SUMMER"*/
         Season1 winter1 = Season1.valueOf("SUMMER");
         System.out.println(winter1); // SUMMER
 
