@@ -58,6 +58,22 @@ import java.util.List;
 
 public class ListTest {
 
+    // tell remove(index) && remove(obj)
+    @Test
+    public void test4(){
+        ArrayList list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        updateList(list);
+        System.out.println(list);
+    }
+    public void updateList(ArrayList list){
+//        list.remove(2); // index 2
+        list.remove(new Integer(2)); // Object 2
+    }
+
     // 遍历三种方法：
     @Test
     public void test3(){
@@ -90,7 +106,8 @@ public class ListTest {
         list.add(123);
         list.add(456);
         list.add(new String("Alex"));
-        list.add(new Person("Coco", 24));
+        Person person = new Person("Coco", 24);
+        list.add(person);
 
         System.out.println(list);
         // add(index, obj);
