@@ -53,7 +53,7 @@ public class DateTimeTest {
         System.out.println("Date date1 after parse: " + format1);
 
         // use different formats to format date
-        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd z HH:mm:ss");
         String format2 = sdf1.format(date);
         System.out.println("String date2 after format: " + format2); //2020/04/26 10:29:45
 
