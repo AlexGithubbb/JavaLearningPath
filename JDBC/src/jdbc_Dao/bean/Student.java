@@ -1,4 +1,4 @@
-package jdbc.bean;
+package jdbc_Dao.bean;
 
 public class Student {
  private int FlowID;

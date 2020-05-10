@@ -1,4 +1,4 @@
-package jdbc_2.utils;
+package jdbc_Dao.utils;
 
 import java.io.InputStream;
 import java.sql.*;

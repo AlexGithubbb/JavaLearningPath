@@ -5,17 +5,19 @@ package jdbc_Dao;
 *  update list
 * */
 
-import jdbc.utils.JDBCUtils;
+
+import jdbc_Dao.utils.JDBCUtils;
 
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class DaoBase {
+public abstract class BaseDAO {
+
 
     // get single instance
-    public  <T> T getInstance(Connection connection, Class<T> clazz, String sql, Object ...args) {
+    public  <T> T getInstance(Connection connection, Class<T> clazz, String sql, Object...args) {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
@@ -104,7 +106,7 @@ public abstract class DaoBase {
     }
 
     // update table
-    public int update2(Connection conn, String sql, Object ...args) {
+    public int update(Connection conn, String sql, Object ...args) {
         PreparedStatement ps = null;
         try {
 
@@ -132,7 +134,7 @@ public abstract class DaoBase {
     }
 
     // get generic value
-    public <E> E getValue(Connection conn, String sql, Object ...args) throws Exception {
+    public <E> E getValue(Connection conn, String sql, Object ...args) {
 
         PreparedStatement ps = null;
         ResultSet resultSet = null;
