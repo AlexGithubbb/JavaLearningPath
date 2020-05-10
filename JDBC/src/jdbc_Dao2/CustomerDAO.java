@@ -1,4 +1,4 @@
-package jdbc_Dao;
+package jdbc_Dao2;
 
 import jdbc_Dao.bean.Customer;
 
@@ -14,7 +14,7 @@ public interface CustomerDAO {
 
     void update(Connection connection, Customer customer);
 
-    Customer getCustomerById(Connection connection,int id);
+    Customer getCustomerById(Connection connection, int id);
 
     List<Customer> getAll(Connection connection);
 

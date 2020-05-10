@@ -1,4 +1,4 @@
-package jdbc_Dao;
+package jdbc_Dao2;
 
 import jdbc_Dao.bean.Customer;
 
@@ -6,7 +6,15 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
 
-public class CustomerDAOImpl extends BaseDAO implements CustomerDAO{
+public class CustomerDAOImpl extends BaseDAO<Customer> implements CustomerDAO {
+
+//    @Test
+//    public void test() throws Exception {
+//
+//        Connection connection = JDBCUtils.getConnection();
+//        List<Customer> all = getAll(connection);
+//        System.out.println(all);
+//    }
 
     @Override
     public void insert(Connection connection, Customer customer) {
@@ -29,14 +37,14 @@ public class CustomerDAOImpl extends BaseDAO implements CustomerDAO{
     @Override
     public Customer getCustomerById(Connection connection, int id) {
         String sql = "select id, name, email, birth from customers where id = ?";
-        Customer customer = getInstance(connection, Customer.class, sql, id);
+        Customer customer = getInstance(connection,  sql, id);
         return customer;
     }
 
     @Override
     public List<Customer> getAll(Connection connection) {
         String sql = "select id, name, email, birth from customers";
-        List<Customer> list = getForList(connection, Customer.class, sql);
+        List<Customer> list = getForList(connection, sql);
         return list;
     }
 
