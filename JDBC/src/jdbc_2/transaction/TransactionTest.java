@@ -30,6 +30,8 @@ public class TrancactionTest {
             // submit the data when the whole transaction got executed!
             connection.commit();
         } catch (Exception e) {
+            // 在数据库连接池的场景下使用
+            connection.setAutoCommit(true);
             e.printStackTrace();
             // rollback whole process if there is an exception occured.
             connection.rollback();
