@@ -1,9 +1,11 @@
-package connection;
+package connection.C3P0;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class C3P0Test {
     @Test
@@ -34,5 +36,37 @@ public class C3P0Test {
 
         Connection conn = cpds.getConnection();
         System.out.println(conn);
+    }
+
+    public static class JDBCUtils {
+
+
+
+        /* leverage C3P0 tech db connection pool */
+        // 先造池
+        static ComboPooledDataSource cpds = new ComboPooledDataSource("helloc3p0");
+        //后获取连接  get connection
+        public static Connection getConnection() throws SQLException {
+            Connection conn = cpds.getConnection();
+            return conn;
+        }
+
+        public static void closeResource(Connection conn, PreparedStatement ps){
+
+            try {
+                if(ps!= null)
+                    ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                if(conn != null)
+                    conn.close();
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+
+        }
+
     }
 }

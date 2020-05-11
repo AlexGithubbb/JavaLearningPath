@@ -1,5 +1,10 @@
 package jdbc.utils;
 
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+import connection.DruidTest;
+import org.apache.commons.dbutils.DbUtils;
+
+import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
@@ -65,4 +70,33 @@ public class JDBCUtils {
         }
 
     }
+
+    // Druid get connection
+    private static DataSource dataSource = null;
+    static{
+        try {
+            Properties pros = new Properties();
+            pros.load(DruidTest.class.getClassLoader().getResourceAsStream("druid.properties"));
+
+            dataSource = DruidDataSourceFactory.createDataSource(pros);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    };
+
+    public static Connection getConnection3() throws Exception {
+        Connection connection = dataSource.getConnection();
+        return connection;
+    }
+
+
+    // Apache DBUtils 关闭数据库连接池
+    public static void closeResource3(Connection conn, PreparedStatement ps, ResultSet rs){
+
+        DbUtils.closeQuietly(conn);
+        DbUtils.closeQuietly(ps);
+        DbUtils.closeQuietly(rs);
+
+    }
+
 }

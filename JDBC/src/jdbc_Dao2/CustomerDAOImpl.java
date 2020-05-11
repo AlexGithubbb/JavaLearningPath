@@ -1,6 +1,7 @@
 package jdbc_Dao2;
 
 import jdbc_Dao.bean.Customer;
+import jdbc_Dao3.BaseDAO;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -18,8 +19,8 @@ public class CustomerDAOImpl extends BaseDAO<Customer> implements CustomerDAO {
 
     @Override
     public void insert(Connection connection, Customer customer) {
-        String sql = "insert into customers (name, email, birth) values(?,?,?)";
-        update(connection, sql, customer.getName(), customer.getEmail(), customer.getBirth());
+        String sql = "insert into customers (id, name, email, birth) values(?, ?,?,?)";
+        update(connection, sql, customer.getId(), customer.getName(), customer.getEmail(), customer.getBirth());
     }
 
     @Override

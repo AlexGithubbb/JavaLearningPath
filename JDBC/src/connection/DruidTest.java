@@ -14,12 +14,12 @@ public class DruidTest {
     /*  should also test in jdbc_Dao/junit/jdbc_DAO/CustomerDAOImplTest, the select operation (get single instance or all)  */
     @Test
     public void test() throws Exception {
-        Connection connection3 = null;
+        Connection connection = null;
         PreparedStatement ps = null;
         try {
-            connection3 = JDBCUtils.getConnection3();
+            connection = JDBCUtils.getConnection3();
             String sql = "select id, name, email, birth from customers where id = ?";
-            ps = connection3.prepareStatement(sql);
+            ps = connection.prepareStatement(sql);
 
             // fill the `?`
             ps.setString(1,"13");
@@ -38,7 +38,7 @@ public class DruidTest {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource3(connection3, ps);
+            JDBCUtils.closeResource3(connection, ps, null);
         }
 
     }

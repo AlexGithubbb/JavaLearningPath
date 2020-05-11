@@ -1,16 +1,21 @@
 package jdbc_Dao;
 
-import jdbc_Dao.bean.Customer;
 import jdbc.utils.JDBCUtils;
-//import connection.JDBCUtils;
+import jdbc_Dao.bean.Customer;
+//import jdbc_Dao.CustomerDAOImpl;
+import jdbc_Dao2.CustomerDAOImpl;
 import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
 
+//import connection.C3P0.C3P0Test.JDBCUtils;
+
 
 public class CustomerDAOImplTest {
+
+//    private CustomerDAOImpl dao = new CustomerDAOImpl();
 
     private CustomerDAOImpl dao = new CustomerDAOImpl();
 
@@ -19,13 +24,13 @@ public class CustomerDAOImplTest {
         Connection connection = null;
         try {
             connection = JDBCUtils.getConnection();
-            Customer customer = new Customer(5,"Julie", "julie@gmail.com", new Date(12314214L));
+            Customer customer = new Customer(11,"Julie", "julie@gmail.com", new Date(12314214L));
             dao.insert(connection, customer);
             System.out.println("insert success!");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(connection, null);
+            JDBCUtils.closeResource3(connection, null, null);
         }
 
     }
@@ -35,12 +40,12 @@ public class CustomerDAOImplTest {
         Connection connection = null;
         try {
             connection = JDBCUtils.getConnection();
-            dao.deleteById(connection, 23);
+            dao.deleteById(connection, 24);
             System.out.println("delete success!");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(connection, null);
+            JDBCUtils.closeResource3(connection, null, null);
         }
 
     }
@@ -56,7 +61,7 @@ public class CustomerDAOImplTest {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(connection, null);
+            JDBCUtils.closeResource3(connection, null, null);
         }
     }
 
@@ -74,7 +79,7 @@ public class CustomerDAOImplTest {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(connection, null);
+            JDBCUtils.closeResource3(connection, null, null);
         }
     }
 
@@ -91,7 +96,7 @@ public class CustomerDAOImplTest {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(connection, null);
+            JDBCUtils.closeResource3(connection, null, null);
         }    }
 
     @Test
@@ -107,7 +112,7 @@ public class CustomerDAOImplTest {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(connection, null);
+            JDBCUtils.closeResource3(connection, null, null);
         }
     }
 
@@ -122,7 +127,7 @@ public class CustomerDAOImplTest {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(connection, null);
+            JDBCUtils.closeResource3(connection, null, null);
         }
     }
 }
