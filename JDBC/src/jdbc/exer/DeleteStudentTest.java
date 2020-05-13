@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-public class deleteStudentTest {
+public class DeleteStudentTest {
     public static void main(String[] args) {
         System.out.println("请输入要删除学生的考号");
         Scanner scanner = new Scanner(System.in);

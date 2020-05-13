@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.Scanner;
 
-public class selectStudentTest {
+public class SelectStudentTest {
 
     /* Query with either IDCard or ExamCard*/
     public static void main(String[] args) {

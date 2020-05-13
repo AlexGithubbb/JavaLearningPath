@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-public class insertTest {
+public class InsertTest {
 
     /* 优化三：使用 conn.setAutoCommit(false)提高效率 */
     @Test
