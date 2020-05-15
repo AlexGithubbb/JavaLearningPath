@@ -6,6 +6,27 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
 
+
+/*Class Loader Subsystem
+It is mainly responsible for three activities.
+
+Loading
+Linking
+Initialization
+Loading : The Class loader reads the .class file, generate the corresponding binary data and save it in method area. For each .class file,
+            JVM stores following information in method area.
+
+           > Fully qualified name of the loaded class and its immediate parent class.
+           > Whether .class file is related to Class or Interface or Enum
+           > Modifier, Variables and Method information etc.
+
+After loading .class file, JVM creates an object of type Class to represent this file in the | heap memory |.
+Please note that this object is of type Class predefined in java.lang package. | This Class object can be used by the
+programmer for getting class level information like name of class, parent name, methods and variable information etc.|
+To get this object reference we can use | getClass() | method of Object class.
+
+*/
+
 /* leverage reflection, we can get information about class and parentClass's fields and methods */
 
 public class ReflectionTest {
