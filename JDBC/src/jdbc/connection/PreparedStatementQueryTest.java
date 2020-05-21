@@ -17,13 +17,13 @@ public class PreparedStatementQueryTest {
     @Test
     public void test3(){
         // set alias in sql to match the filed name in Order class;
-        String sql = "select order_id orderID, order_name orderName, order_date orderDate from `order`";
+        String sql = "select order_id orderID, order_name orderName, order_date orderDate from order_table";
         List<Order> orders = getForList(Order.class, sql);
         orders.forEach(System.out::println);
 
         System.out.println("\n");
 
-        String sql2 = "select id, name name123, email, birth birthD from customers where id < ?";
+        String sql2 = "select id, name, email, birth from customers where id < ?";
         List<Customer> customers = getForList(Customer.class, sql2, 10);
         customers.forEach(System.out::println);
     }
@@ -80,7 +80,7 @@ public class PreparedStatementQueryTest {
     @Test
     public void test2(){
         // set alias in sql to match the filed name in Order class;
-        String sql = "select order_id orderID, order_name orderName, order_date orderDate from `order` where order_id = ?";
+        String sql = "select order_id orderID, order_name orderName, order_date orderDate from order_table where order_id = ?";
         Order order = getInstance(Order.class, sql, 1);
         System.out.println(order);
     }

@@ -5,18 +5,18 @@ import java.sql.Date;
 public class Customer {
 
     private int id;
-    private String name123;
+    private String name;
     private String email;
-    private Date birthD;
+    private Date birth;
 
     public Customer() {
     }
 
-    public Customer(int id, String name123, String email, Date birthD) {
+    public Customer(int id, String name, String email, Date birth) {
         this.id = id;
-        this.name123 = name123;
+        this.name = name;
         this.email = email;
-        this.birthD = birthD;
+        this.birth = birth;
     }
 
     public int getId() {
@@ -28,11 +28,11 @@ public class Customer {
     }
 
     public String getName() {
-        return name123;
+        return name;
     }
 
-    public void setName(String name123) {
-        this.name123 = name123;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -44,20 +44,20 @@ public class Customer {
     }
 
     public Date getBirth() {
-        return birthD;
+        return birth;
     }
 
-    public void setBirth(Date birthD) {
-        this.birthD = birthD;
+    public void setBirth(Date birth) {
+        this.birth = birth;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", name123='" + name123 + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", birthD=" + birthD +
+                ", birth=" + birth +
                 '}';
     }
 }

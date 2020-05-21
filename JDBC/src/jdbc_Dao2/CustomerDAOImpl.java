@@ -1,7 +1,6 @@
 package jdbc_Dao2;
 
 import jdbc_Dao.bean.Customer;
-import jdbc_Dao3.BaseDAO;
 
 import java.sql.Connection;
 import java.sql.Date;

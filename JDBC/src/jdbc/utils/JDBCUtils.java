@@ -90,7 +90,7 @@ public class JDBCUtils {
     }
 
 
-    // Apache DBUtils 关闭数据库连接池
+    // Apache DbUtils 关闭数据库连接池
     public static void closeResource3(Connection conn, PreparedStatement ps, ResultSet rs){
 
         DbUtils.closeQuietly(conn);

@@ -33,8 +33,8 @@ public class TransactionTest {
         Connection connection = null;
         try {
             connection = JDBCUtils.getConnection();
-            connection.setAutoCommit(false);
-            connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+            //connection.setAutoCommit(false);
+            //connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             System.out.println(connection.getTransactionIsolation());
 
             String sql = "select user, password, balance from user_table where user = ?";
@@ -69,14 +69,15 @@ public class TransactionTest {
             // submit the data when the whole transaction got executed!
             connection.commit();
         } catch (Exception e) {
-            // 在数据库连接池的场景下使用
-            connection.setAutoCommit(true);
             e.printStackTrace();
             // rollback whole process if there is an exception occured.
             connection.rollback();
         } finally {
             JDBCUtils.closeResource(connection, null);
         }
+
+        // 在数据库连接池的场景下使用
+        connection.setAutoCommit(true);
 
     }
 

@@ -25,6 +25,8 @@ public class ConnectionTest {
 
         props.load(is);
 
+        System.out.println(props);
+
         String url = props.getProperty("url");
         String user = props.getProperty("user");
         String password = props.getProperty("password");
@@ -102,14 +104,14 @@ public class ConnectionTest {
 
             Driver driver = (Driver) clazz.newInstance();
 
-        String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        Properties info = new Properties();
+            String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            Properties info = new Properties();
 
             info.setProperty("user", "root");
             info.setProperty("password", "Oracle3*+");
 
-        Connection conn = driver.connect(url, info);
-        System.out.println(conn);
+            Connection conn = driver.connect(url, info);
+            System.out.println(conn);
         }
 
     /* method1 */

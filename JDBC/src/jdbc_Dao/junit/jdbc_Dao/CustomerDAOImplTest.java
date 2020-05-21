@@ -24,7 +24,7 @@ public class CustomerDAOImplTest {
         Connection connection = null;
         try {
             connection = JDBCUtils.getConnection();
-            Customer customer = new Customer(11,"Julie", "julie@gmail.com", new Date(12314214L));
+            Customer customer = new Customer(15,"Julie", "julie@gmail.com", new Date(12314214L));
             dao.insert(connection, customer);
             System.out.println("insert success!");
         } catch (Exception e) {

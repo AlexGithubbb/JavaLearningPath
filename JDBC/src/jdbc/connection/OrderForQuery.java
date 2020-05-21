@@ -12,7 +12,7 @@ public class OrderForQuery {
     @Test
     public void test2(){
         // set alias in sql to match the filed name in Order class;
-        String sql = "select order_id orderID, order_name orderName, order_date orderDate from `order` where order_id = ?";
+        String sql = "select order_id orderID, order_name orderName, order_date orderDate from order_table where order_id = ?";
         Order order = getOrder(sql, 4);
         System.out.println(order);
     }
@@ -71,7 +71,7 @@ public class OrderForQuery {
         try {
              connection = JDBCUtils.getConnection();
 
-            String sql = "select order_id, order_name, order_date from `order` where order_id = ?";
+            String sql = "select order_id, order_name, order_date from order_table where order_id = ?";
              ps = connection.prepareStatement(sql);
             ps.setObject(1,1);
 
