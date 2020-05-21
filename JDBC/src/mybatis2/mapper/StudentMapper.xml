@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace is interface name now, and id below is the method name in that interface, therefore, mybatis will know which method need to be executed -->
+
+<mapper namespace="mybatis2.dao.StudentMapper">
+
+    <!-- the execution order would be: all sql statement with/without the current databaseId (up to what env mybatis uses right now, check 'default' of envs in config.xml)  -->
+    <select id="getStdById" resultType="mybatis2.bean.Student" databaseId="mysql">
+        select * from students where id = #{id}
+    </select>
+
+    <select id="getStdById" resultType="mybatis2.bean.Student">
+            select * from students where id = #{id}
+    </select>
+
+    <select id="getStdById" resultType="mybatis2.bean.Student" databaseId="oracle">
+        select * from students where id = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace is interface name now, and id below is the method name in that interface, therefore, mybatis will know which method need to be executed -->
+<mapper namespace="myBatis.dao.StudentMapper">
+    <select id="getStdById" resultType="myBatis.bean.Student">
+        select id, last_name name, gender from students where id = #{id}
+    </select>
+
+    <insert id="insertStd">
+        insert into students (id, first_name, gender)values(#{id}, #{first_name}, #{gender} ) ?
+    </insert>
+</mapper>

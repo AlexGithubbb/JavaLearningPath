@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--
+    1. properties tag is for introducing properties config file
+    : a. resource -> local source
+    : b. url -> web source
+-->
+    <properties resource="mybatis2/dbconfig.properties"></properties>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+<!--    typeAliases -->
+    <typeAliases>
+<!--        <typeAlias alias="std" type="myBatis.bean.Student" />-->
+        <!--  sets alias , need to use with @Alias("  ") -->
+        <package name="mybatis2.bean"/>
+        <!-- @Alias("xxx") in bean.Class -->
+    </typeAliases>
+
+
+    <environments default="dev_development"> <!-- default :  switch among diff envs based on the id of each environment -->
+
+        <environment id="dev_test">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED"></dataSource>
+        </environment>
+
+        <environment id="dev_development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <databaseIdProvider type="DB_VENDOR">
+        <property name="SQL Server" value="sqlserver"/>
+        <property name="MySQL" value="mysql"/>
+        <property name="DB2" value="db2"/>
+        <property name="Oracle" value="oracle" />
+    </databaseIdProvider>
+
+    <!-- mapper: register one sql mapping file
+            1.resource: file under class route
+            2.url: web source or local disk file
+            3.class: interface name
+     -->
+    <mappers>
+        <mapper resource="mybatis2/mapper/StudentMapper.xml"/>
+    </mappers>
+</configuration>
