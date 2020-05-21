@@ -7,35 +7,66 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TCPTest2 {
+public class TCPTest3 {
     @Test
     public void client() {
         Socket socket = null;
         OutputStream os = null;
         FileInputStream fis = null;
+        InputStream is = null;
+        ByteArrayOutputStream baos = null;
+
         try {
             InetAddress inetAddress =  InetAddress.getByName("localhost");
-            // 创建 socket 对象
+            // create socket
             socket = new Socket(inetAddress, 8090);
 
-            // 获取一个输出流， 用于输出数据
             fis = new FileInputStream("nature.jpg");
 
             os = socket.getOutputStream();
 
-            // 输出流写出数据
             byte[] buffer = new byte[1024];
             int len;
             while( (len = fis.read(buffer)) != -1){
                 os.write(buffer, 0, len);
             }
 
+            // shutdown the output stream when it's done
+            socket.shutdownOutput();
+
+            //feedback from server
+
+             is = socket.getInputStream();
+             baos = new ByteArrayOutputStream();
+
+            byte[] buffer1 = new byte[200];
+            int len1;
+            while( (len1 = is.read(buffer1)) != -1){
+                baos.write(buffer1, 0, len1);
+            }
+
+            System.out.println("message from server: " +baos.toString());
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
             try {
+                if(is!= null)
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                if(baos!= null)
+                baos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
                 if(fis != null)
-                fis.close();
+                    fis.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -64,6 +95,7 @@ public class TCPTest2 {
         Socket socket = null;
         InputStream is = null;
         FileOutputStream fos = null;
+        OutputStream os = null;
         try {
             // create serverSocket， referring the  port
             serverSocket = new ServerSocket(8090);
@@ -72,7 +104,7 @@ public class TCPTest2 {
             socket = serverSocket.accept();
 
 
-            fos = new FileOutputStream(new File("nature2.jpg"));
+            fos = new FileOutputStream(new File("nature3.jpg"));
 
             // read the data from inputStream and write it into the buffer, store in local
             is = socket.getInputStream();
@@ -81,13 +113,24 @@ public class TCPTest2 {
             while( (len = is.read(buffer)) != -1){
                 fos.write(buffer, 0, len);
             }
-            System.out.println("get socket from :" + socket.getInetAddress().getHostAddress() + " " + socket.getInetAddress().getHostName());
+
+            System.out.println("picture got downloaded!");
+
+            os = socket.getOutputStream();
+            os.write("got the 图片, thank you!".getBytes());
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         finally {
             // 关闭资源
+            try {
+                if(os != null)
+                os.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             try {
                 if(serverSocket != null)
                     serverSocket.close();
